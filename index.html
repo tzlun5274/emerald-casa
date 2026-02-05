@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>水玉藝文工作室 | Emerald Artistique Casa</title>
     <style>
-        /* 整體樣式設定 */
+        /* --- 基礎樣式與變數 --- */
         :root {
             --emerald: #046307;
             --gold: #C5A059;
             --light-bg: #F9F8F7;
             --dark-text: #2c3e50;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -19,13 +24,14 @@
             padding: 0;
             background-color: var(--light-bg);
             color: var(--dark-text);
-            line-height: 1.6;
+            line-height: 1.8;
+            scroll-behavior: smooth;
         }
 
-        /* 導覽列 */
+        /* --- 導覽列 --- */
         nav {
-            background-color: #fff;
-            padding: 20px 50px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -36,17 +42,23 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: var(--emerald);
             letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
         }
 
         .nav-links a {
-            margin-left: 30px;
+            margin-left: 25px;
             text-decoration: none;
             color: var(--dark-text);
             font-size: 15px;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -54,165 +66,342 @@
             color: var(--gold);
         }
 
-        /* 首頁大圖區 */
+        /* --- 首頁大圖區 --- */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* 模擬高質感文具底圖 */
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #fff;
+            color: var(--white);
             text-align: center;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            letter-spacing: 5px;
+            font-size: clamp(32px, 8vw, 56px);
+            margin-bottom: 15px;
+            letter-spacing: 8px;
+            font-weight: 300;
         }
 
         .hero p {
-            font-size: 20px;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
+            font-size: clamp(16px, 4vw, 22px);
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            opacity: 0.9;
         }
 
         .cta-btn {
-            padding: 12px 40px;
+            padding: 15px 50px;
             background-color: var(--emerald);
-            color: #fff;
+            color: var(--white);
             text-decoration: none;
-            border-radius: 0px;
+            letter-spacing: 2px;
+            transition: all 0.4s;
             border: 1px solid var(--emerald);
-            transition: all 0.3s;
         }
 
         .cta-btn:hover {
             background-color: transparent;
-            color: #fff;
-            border: 1px solid #fff;
+            color: var(--white);
+            border-color: var(--white);
         }
 
-        /* 營業項目區 */
-        .services {
-            padding: 80px 50px;
-            text-align: center;
+        /* --- 通用區塊樣式 --- */
+        section {
+            padding: 100px 10%;
         }
 
         .section-title {
-            font-size: 28px;
+            text-align: center;
+            font-size: 32px;
             color: var(--emerald);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .service-grid {
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        /* --- 品牌故事 (關於我們) --- */
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1516631134075-9b05d12116bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') center/cover;
+            border-radius: 2px;
+            box-shadow: 20px 20px 0 var(--emerald);
+        }
+
+        /* --- 選物與配件 (產品展示) --- */
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
 
-        .service-item {
-            background: #fff;
-            padding: 40px;
+        .product-card {
+            background: var(--white);
             border: 1px solid #eee;
+            overflow: hidden;
             transition: transform 0.3s;
         }
 
-        .service-item:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
+        .product-card:hover {
+            transform: translateY(-5px);
         }
 
-        .service-item h3 {
-            color: var(--gold);
-            margin-bottom: 15px;
+        .product-img {
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
         }
 
-        /* 關於我們 / 法律資訊區 */
-        .about {
-            background-color: #fff;
-            padding: 80px 50px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .about-content {
-            max-width: 800px;
-            border-left: 4px solid var(--emerald);
-            padding-left: 40px;
-        }
-
-        /* 頁尾 */
-        footer {
-            background-color: var(--emerald);
-            color: #fff;
-            padding: 50px;
+        .product-info {
+            padding: 25px;
             text-align: center;
         }
 
-        .contact-info {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-top: 20px;
+        .product-info h3 {
+            margin: 0 0 10px 0;
+            color: var(--emerald);
+            font-size: 18px;
         }
 
+        .product-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* --- 聯絡我們 --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--emerald);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* --- 頁尾 --- */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--white);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            color: var(--white);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            line-height: 2;
+            opacity: 0.7;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; flex-direction: column; }
+            .nav-links { margin-top: 15px; }
+            .nav-links a { margin: 0 10px; font-size: 13px; }
+            section { padding: 60px 20px; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">水玉藝文工作室</div>
+        <a href="#" class="logo">水玉藝文工作室</a>
         <div class="nav-links">
-            <a href="#">品牌故事</a>
-            <a href="#">藝文選物</a>
-            <a href="#">樂器配件</a>
-            <a href="#">聯絡我們</a>
+            <a href="#brand">品牌故事</a>
+            <a href="#products">藝文選物</a>
+            <a href="#accessories">樂器配件</a>
+            <a href="#contact">聯絡我們</a>
         </div>
     </nav>
 
     <header class="hero">
         <h1>Emerald Artistique Casa</h1>
         <p>讓藝術，成為生活的圓點</p>
-        <a href="#services" class="cta-btn">探索工藝</a>
+        <a href="#products" class="cta-btn">探索工藝</a>
     </header>
 
-    <section id="services" class="services">
-        <h2 class="section-title">核心服務領域</h2>
-        <div class="service-grid">
-            <div class="service-item">
-                <h3>文教用品</h3>
-                <p>挑選世界各地的質感文具，為您的書寫與創作帶來溫潤觸感。</p>
+    <!-- 品牌故事 -->
+    <section id="brand">
+        <h2 class="section-title">品牌故事</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3 style="color: var(--gold);">水之靈動，玉之溫潤</h3>
+                <p>「水玉」一詞，承載了創辦人 <strong>賴茂富</strong> 先生對於美學生活的深刻體悟。水能載物，代表藝術在生活中的流動與包容；玉則溫潤，象徵工藝品帶給人們手中的觸感與溫度。</p>
+                <p>我們深信，每一件文具、每一款樂器，都不僅僅是工具，而是創作者靈魂的延伸。在 Emerald Artistique Casa，我們為您挑選能夠陪伴一生的質感良物。</p>
             </div>
-            <div class="service-item">
-                <h3>樂器零售</h3>
-                <p>精選樂器配件與初階樂器，陪伴每一位愛樂者踏上習琴之路。</p>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <!-- 藝文選物 -->
+    <section id="products" style="background-color: #fff;">
+        <h2 class="section-title">藝文選物</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3>職人手感鋼筆</h3>
+                    <p>來自日本的精細工藝，讓每一次書寫都成為享受。</p>
+                    <span class="price">NT$ 2,800 Up</span>
+                </div>
             </div>
-            <div class="service-item">
-                <h3>育樂用品</h3>
-                <p>啟發創造力的教具與藝文產品，讓學習在美感中發生。</p>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1531346680769-a1d79b57cf5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3>手工職人筆記本</h3>
+                    <p>義大利皮革封面，無酸紙材質，完美紀錄靈感。</p>
+                    <span class="price">NT$ 850</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1519682574216-a946b6575514?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3>復古美學印章組</h3>
+                    <p>用於手帳佈置與信件封蠟，增添生活儀式感。</p>
+                    <span class="price">NT$ 1,200</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="about">
-        <div class="about-content">
-            <h2 style="color: var(--emerald);">關於水玉</h2>
-            <p>由 <strong>賴茂富</strong> 先生創立，水玉藝文工作室（Emerald Artistique Casa）致力於將「水」的靈動與「玉」的溫潤帶入您的藝文生活。我們不只是零售商，更是您生活美學的提案者。</p>
-            <p style="font-size: 14px; color: #777;">核准預查編號：114012582 | 營業項目：F209060 文教、樂器、育樂用品零售業</p>
+    <!-- 樂器配件 -->
+    <section id="accessories">
+        <h2 class="section-title">樂器配件</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3>專業級琴弦組</h3>
+                    <p>為您的愛琴換上最純淨的音色。</p>
+                    <span class="price">NT$ 450 Up</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1552422535-c45813c61732?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3>節拍器與調音器</h3>
+                    <p>精準紀錄節奏，陪伴您的每一次練習。</p>
+                    <span class="price">NT$ 980</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡我們 -->
+    <section id="contact" style="background-color: #f1efed;">
+        <h2 class="section-title">聯絡我們</h2>
+        <div class="contact-container">
+            <p style="text-align: center; margin-bottom: 30px; font-size: 14px;">如果您對產品有任何疑問或合作意願，歡迎留言給我們。</p>
+            <form>
+                <div class="form-group">
+                    <label>您的姓名</label>
+                    <input type="text" placeholder="例如：王小明">
+                </div>
+                <div class="form-group">
+                    <label>電子郵件</label>
+                    <input type="email" placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label>詢問內容</label>
+                    <textarea rows="5" placeholder="請輸入您想詢問的內容..."></textarea>
+                </div>
+                <button type="button" class="submit-btn" onclick="alert('感謝您的留言，我們將盡快與您聯絡！')">送出訊息</button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <div class="logo" style="color: #fff;">水玉藝文工作室</div>
-        <div class="contact-info">
+        <div class="footer-logo">水玉藝文工作室</div>
+        <div class="footer-info">
             代表人：賴茂富<br>
+            核准預查編號：114012582<br>
             地址：臺北市文山區一壽街４１號６樓<br>
+            營業項目：F209060 文教、樂器、育樂用品零售業
+        </div>
+        <div class="footer-bottom">
             © 2025 Emerald Artistique Casa. All Rights Reserved.
         </div>
     </footer>
