@@ -68,7 +68,7 @@
 
         /* --- 首頁大圖區 --- */
         .hero {
-            height: 90vh;
+            height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -106,15 +106,9 @@
             border: 1px solid var(--emerald);
         }
 
-        .cta-btn:hover {
-            background-color: transparent;
-            color: var(--white);
-            border-color: var(--white);
-        }
-
         /* --- 通用區塊樣式 --- */
         section {
-            padding: 100px 10%;
+            padding: 80px 5%;
         }
 
         .section-title {
@@ -137,73 +131,73 @@
             background-color: var(--gold);
         }
 
-        /* --- 品牌故事 --- */
-        .about-grid {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            height: 400px;
-            background: url('https://images.unsplash.com/photo-1516631134075-9b05d12116bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') center/cover;
-            border-radius: 2px;
-            box-shadow: 20px 20px 0 var(--emerald);
-        }
-
-        /* --- 產品展示 (選物與配件) --- */
+        /* --- 產品展示 --- */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .product-card {
             background: var(--white);
             border: 1px solid #eee;
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
 
         .product-img {
-            height: 250px;
-            background-color: #ddd;
+            height: 180px;
+            background-color: #f0f0f0;
             background-size: cover;
             background-position: center;
         }
 
         .product-info {
-            padding: 25px;
-            text-align: center;
+            padding: 18px;
+            text-align: left;
+            flex-grow: 1;
         }
 
         .product-info h3 {
             margin: 0 0 10px 0;
             color: var(--emerald);
-            font-size: 18px;
+            font-size: 15px;
+            line-height: 1.4;
+            height: 2.8em;
+            overflow: hidden;
         }
 
-        .product-info p {
-            font-size: 14px;
+        .product-tag {
+            display: inline-block;
+            font-size: 10px;
+            background: #f1f1f1;
+            padding: 2px 8px;
+            border-radius: 2px;
+            margin-bottom: 8px;
             color: #666;
-            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        .price {
-            color: var(--gold);
+        .product-price {
             font-weight: bold;
+            color: var(--gold);
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .product-desc {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin: 0;
         }
 
         /* --- 聯絡我們 --- */
@@ -240,48 +234,33 @@
             border: none;
             cursor: pointer;
             letter-spacing: 2px;
-            transition: opacity 0.3s;
-        }
-
-        .submit-btn:hover {
-            opacity: 0.9;
         }
 
         /* --- 頁尾 --- */
         footer {
             background-color: #1a1a1a;
             color: var(--white);
-            padding: 80px 5%;
+            padding: 60px 5%;
             text-align: center;
         }
 
         .footer-logo {
-            font-size: 24px;
-            color: var(--white);
+            font-size: 20px;
             letter-spacing: 3px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .footer-info {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 2;
             opacity: 0.7;
         }
 
-        .footer-bottom {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 12px;
-            opacity: 0.5;
-        }
-
-        /* 響應式調整 */
         @media (max-width: 768px) {
             nav { padding: 15px 20px; flex-direction: column; }
             .nav-links { margin-top: 15px; }
-            .nav-links a { margin: 0 10px; font-size: 13px; }
-            section { padding: 60px 20px; }
+            .nav-links a { margin: 0 8px; font-size: 13px; }
+            section { padding: 50px 20px; }
         }
     </style>
 </head>
@@ -300,8 +279,8 @@
 
     <header class="hero">
         <h1>Emerald Artistique Casa</h1>
-        <p>讓藝術，成為生活的圓點</p>
-        <a href="#brand" class="cta-btn">探索故事</a>
+        <p>每一張影帶，都是一段凝固的文明時光</p>
+        <a href="#media" class="cta-btn">瀏覽典藏</a>
     </header>
 
     <!-- 品牌故事 -->
@@ -310,31 +289,315 @@
         <div class="about-grid">
             <div class="about-text">
                 <h3 style="color: var(--gold);">水之靈動，玉之溫潤</h3>
-                <p>「水玉」一詞，承載了創辦人 <strong>賴茂富</strong> 先生對於美學生活的深刻體悟。水能載物，代表藝術在生活中的流動與包容；玉則溫潤，象徵工藝品帶給人們手中的觸感與溫度。</p>
-                <p>我們深信，每一件文具、每一款樂器，都不僅僅是工具，而是創作者靈魂的延伸。在 Emerald Artistique Casa，我們為您挑選能夠陪伴一生的質感良物。</p>
+                <p>「水玉」一詞，承載了創辦人 <strong>賴茂富</strong> 先生對於美學生活的深刻體悟。我們深信，藝術不應只是高不可攀的陳列，而是日常生活中隨處可見的驚喜。</p>
+                <p>從自然紀實、古典音樂到兒童啟蒙，我們精選各類影音與文創選物，致力於在繁忙的都市步調中，為您開闢一方溫潤的藝文角落。</p>
             </div>
             <div class="about-image"></div>
         </div>
     </section>
 
     <!-- 影音典藏 -->
-    <section id="media" style="background-color: #f9f8f7;">
+    <section id="media" style="background-color: #f1efed;">
         <h2 class="section-title">影音典藏</h2>
         <div class="product-grid">
+            <!-- 1 -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop');"></div>
                 <div class="product-info">
-                    <h3>經典黑膠系列</h3>
-                    <p>重拾模擬音質的感動，收藏時光的深度。</p>
-                    <span class="price">NT$ 1,200 Up</span>
+                    <span class="product-tag">DVD / 2片套</span>
+                    <h3>生命奇蹟</h3>
+                    <p class="product-desc">得利發行 / 單一規格</p>
+                    <span class="product-price">NT$ 50</span>
                 </div>
             </div>
+            <!-- 2 -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=800&auto=format&fit=crop');"></div>
                 <div class="product-info">
-                    <h3>大師演奏 CD 典藏</h3>
-                    <p>高品質數位錄音，完美重現音樂廳現場律動。</p>
-                    <span class="price">NT$ 450 Up</span>
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>永恆的生命脈動</h3>
+                    <p class="product-desc">得利發行 / 全 6 集套裝</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>非洲新視界</h3>
+                    <p class="product-desc">得利發行 / 非洲壯麗景觀紀錄</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 2片套</span>
+                    <h3>狂野阿拉伯</h3>
+                    <p class="product-desc">探索神秘荒漠與自然奧秘</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1537750106667-25459325994f?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">2DVD+1CD</span>
+                    <h3>碰碰狐MV動畫 1</h3>
+                    <p class="product-desc">東森發行 / 兒童啟蒙首選</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 6 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 2片套</span>
+                    <h3>Ben & Holly 花園小精靈 1</h3>
+                    <p class="product-desc">東森發行 / 奇幻童趣世界</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 7 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1465821185615-9a4ca99398fb?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 2片套</span>
+                    <h3>管弦之夜─采風樂團</h3>
+                    <p class="product-desc">國樂與現代之碰撞現場</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 8 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1524230659192-d5d4bebb1486?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">2DVD / 2集</span>
+                    <h3>大唐風雲-秀琴歌劇團</h3>
+                    <p class="product-desc">經典歌仔戲大戲收藏</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 9 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 4片套</span>
+                    <h3>青春法學園 第一季</h3>
+                    <p class="product-desc">法學知識寓教於樂</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 10 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>台北室內芭蕾舞團─音樂與舞蹈的對話</h3>
+                    <p class="product-desc">茶花女、春之祭、門</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 11 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1574068468668-a05a11f871da?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>國寶采風─千年中國繪畫之旅</h3>
+                    <p class="product-desc">12集深入導覽中國藝術史</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 12 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">3DVD / 套</span>
+                    <h3>文學FACE&BOOK典藏三部曲</h3>
+                    <p class="product-desc">深度文學與人物對話</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 13 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1485546246426-74dc38c3f501?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 2片套</span>
+                    <h3>水果冰淇淋-歡樂童樂會</h3>
+                    <p class="product-desc">公共電視經典兒童節目</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 14 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1521404063671-159409b3fc00?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 4片套</span>
+                    <h3>節氣好生活</h3>
+                    <p class="product-desc">共 12 集探索節氣生活美學</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 15 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>台灣食堂 2</h3>
+                    <p class="product-desc">13集走遍台灣土地的味道</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 16 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 10片</span>
+                    <h3>家</h3>
+                    <p class="product-desc">共 20 集深度人文劇作</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 17 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>含苞欲墜的每一天</h3>
+                    <p class="product-desc">公共電視優質戲劇</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 18 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1480044965905-02098d419e96?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVB-H (BD-25G)</span>
+                    <h3>返家八千里─黑面琵鷺</h3>
+                    <p class="product-desc">珍貴生態紀錄視聽影像</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 19 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1508700915892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 1片套</span>
+                    <h3>芭蕾奇緣</h3>
+                    <p class="product-desc">台聖發行 / 夢幻動畫鉅作</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 20 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1534133072044-246bd766d56d?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>好奇猴喬治 Box 3</h3>
+                    <p class="product-desc">弘恩發行 / 9集歡樂探索</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 21 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1580442151529-343f2f5e0e27?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 1片套</span>
+                    <h3>築地市場-和食之心</h3>
+                    <p class="product-desc">台聖發行 / 探索日本食文化靈魂</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 22 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 8片套</span>
+                    <h3>跟著大主廚去旅行</h3>
+                    <p class="product-desc">台聖發行 / 跨國味蕾與風景</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 23 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1444464666168-49d633b867ad?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">5DVD / 套</span>
+                    <h3>獨立特派員─銀享樂齡新世力</h3>
+                    <p class="product-desc">5集深度報導高齡社會趨勢</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 24 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1547523196-8f2479634568?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 4片套</span>
+                    <h3>台灣食堂 3</h3>
+                    <p class="product-desc">13集深度挖掘土地的美味</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 25 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1570481662006-a3a1374699e8?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 中英雙語</span>
+                    <h3>與海豚的約定</h3>
+                    <p class="product-desc">感人生物互動實錄</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 26 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 4片套</span>
+                    <h3>留聲</h3>
+                    <p class="product-desc">10集錄製時光中的聲音記憶</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 27 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e35ca?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 4片套</span>
+                    <h3>生活高手II─巧手萬能DIY</h3>
+                    <p class="product-desc">創意生活動手做實錄</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 28 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1498855926480-d98e83099315?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 2片套</span>
+                    <h3>探索新美台灣</h3>
+                    <p class="product-desc">6集深度紀錄台灣之美</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 29 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1512413316925-fd47ad46e2ec?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 3片套</span>
+                    <h3>下課花路米─馬達加斯加</h3>
+                    <p class="product-desc">10集橫跨異國的教育冒險</p>
+                    <span class="product-price">NT$ 50</span>
+                </div>
+            </div>
+            <!-- 30 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1474487022159-650030046bc2?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <span class="product-tag">DVD / 10片套</span>
+                    <h3>世界蒸汽火車巡禮</h3>
+                    <p class="product-desc">新動發行 / 鐵道迷珍藏 10 集</p>
+                    <span class="product-price">NT$ 50</span>
                 </div>
             </div>
         </div>
@@ -347,25 +610,17 @@
             <div class="product-card">
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
+                    <span class="product-tag">文教用品</span>
                     <h3>職人手感鋼筆</h3>
-                    <p>來自日本的精細工藝，讓每一次書寫都成為享受。</p>
-                    <span class="price">NT$ 2,800 Up</span>
+                    <p class="product-desc">來自日本的精細工藝，享受流暢書寫體驗。</p>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
+                    <span class="product-tag">文教用品</span>
                     <h3>手工職人筆記本</h3>
-                    <p>義大利皮革封面，無酸紙材質，完美紀錄靈感。</p>
-                    <span class="price">NT$ 850</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1519682574216-a946b6575514?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="product-info">
-                    <h3>復古美學印章組</h3>
-                    <p>用於手帳佈置與信件封蠟，增添生活儀式感。</p>
-                    <span class="price">NT$ 1,200</span>
+                    <p class="product-desc">義大利皮革封面，完美紀錄生活靈感。</p>
                 </div>
             </div>
         </div>
@@ -378,17 +633,9 @@
             <div class="product-card">
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
+                    <span class="product-tag">專業配件</span>
                     <h3>專業級琴弦組</h3>
-                    <p>為您的愛琴換上最純淨的音色。</p>
-                    <span class="price">NT$ 450 Up</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1552422535-c45813c61732?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="product-info">
-                    <h3>節拍器與調音器</h3>
-                    <p>精準紀錄節奏，陪伴您的每一次練習。</p>
-                    <span class="price">NT$ 980</span>
+                    <p class="product-desc">維持愛琴最純淨音色的最佳選擇。</p>
                 </div>
             </div>
         </div>
@@ -398,7 +645,7 @@
     <section id="contact" style="background-color: #f1efed;">
         <h2 class="section-title">聯絡我們</h2>
         <div class="contact-container">
-            <p style="text-align: center; margin-bottom: 30px; font-size: 14px;">如果您對產品有任何疑問或合作意願，歡迎留言給我們。</p>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 14px;">如果您對上述影音產品或其他選物感興趣，歡迎留言詢問。</p>
             <form>
                 <div class="form-group">
                     <label>您的姓名</label>
@@ -409,10 +656,10 @@
                     <input type="email" placeholder="example@email.com">
                 </div>
                 <div class="form-group">
-                    <label>詢問內容</label>
-                    <textarea rows="5" placeholder="請輸入您想詢問的內容..."></textarea>
+                    <label>詢問產品或內容</label>
+                    <textarea rows="5" placeholder="請註明您感興趣的品項..."></textarea>
                 </div>
-                <button type="button" class="submit-btn" onclick="alert('感謝您的留言，我們將盡快與您聯絡！')">送出訊息</button>
+                <button type="button" class="submit-btn" onclick="alert('感謝您的詢問，我們將儘快回覆您！')">送出訊息</button>
             </form>
         </div>
     </section>
@@ -426,7 +673,7 @@
             營業項目：F209060 文教、樂器、育樂用品零售業
         </div>
         <div class="footer-bottom">
-            © 2025 Emerald Artistique Casa. All Rights Reserved.
+            <p style="margin-top: 20px; font-size: 12px; opacity: 0.5;">© 2025 Emerald Artistique Casa. All Rights Reserved.</p>
         </div>
     </footer>
 
