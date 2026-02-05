@@ -137,7 +137,7 @@
             background-color: var(--gold);
         }
 
-        /* --- 品牌故事 (關於我們) --- */
+        /* --- 品牌故事 --- */
         .about-grid {
             display: flex;
             align-items: center;
@@ -159,7 +159,7 @@
             box-shadow: 20px 20px 0 var(--emerald);
         }
 
-        /* --- 選物與配件 (產品展示) --- */
+        /* --- 產品展示 (選物與配件) --- */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -291,6 +291,7 @@
         <a href="#" class="logo">水玉藝文工作室</a>
         <div class="nav-links">
             <a href="#brand">品牌故事</a>
+            <a href="#media">影音典藏</a>
             <a href="#products">藝文選物</a>
             <a href="#accessories">樂器配件</a>
             <a href="#contact">聯絡我們</a>
@@ -300,7 +301,7 @@
     <header class="hero">
         <h1>Emerald Artistique Casa</h1>
         <p>讓藝術，成為生活的圓點</p>
-        <a href="#products" class="cta-btn">探索工藝</a>
+        <a href="#brand" class="cta-btn">探索故事</a>
     </header>
 
     <!-- 品牌故事 -->
@@ -313,6 +314,29 @@
                 <p>我們深信，每一件文具、每一款樂器，都不僅僅是工具，而是創作者靈魂的延伸。在 Emerald Artistique Casa，我們為您挑選能夠陪伴一生的質感良物。</p>
             </div>
             <div class="about-image"></div>
+        </div>
+    </section>
+
+    <!-- 影音典藏 -->
+    <section id="media" style="background-color: #f9f8f7;">
+        <h2 class="section-title">影音典藏</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <h3>經典黑膠系列</h3>
+                    <p>重拾模擬音質的感動，收藏時光的深度。</p>
+                    <span class="price">NT$ 1,200 Up</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="product-info">
+                    <h3>大師演奏 CD 典藏</h3>
+                    <p>高品質數位錄音，完美重現音樂廳現場律動。</p>
+                    <span class="price">NT$ 450 Up</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -408,5 +432,3 @@
 
 </body>
 </html>
-
-
