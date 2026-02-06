@@ -1,1 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快樂鋼琴小學堂 — 讓孩子愛上音樂的第一步</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .piano-gradient {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFF0F6 100%);
+        }
+        .btn-bounce:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
 
+    <!-- 導覽列 -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-3xl text-pink-500">🎹</span>
+                    <span class="text-xl font-bold text-gray-900 tracking-tight">快樂鋼琴小學堂</span>
+                </div>
+                <!-- 桌面版選單 -->
+                <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                    <a href="#home" class="hover:text-pink-500 transition">首頁</a>
+                    <a href="#courses" class="hover:text-pink-500 transition">課程介紹</a>
+                    <a href="#teachers" class="hover:text-pink-500 transition">師資團隊</a>
+                    <a href="#parents" class="hover:text-pink-500 transition">家長專區</a>
+                    <a href="#performance" class="hover:text-pink-500 transition">成果發表</a>
+                    <a href="#faq" class="hover:text-pink-500 transition">常見問題</a>
+                    <a href="#contact" class="hover:text-pink-500 transition">聯絡我們</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 行動版選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-lg">
+            <a href="#home" class="block text-gray-600">首頁</a>
+            <a href="#courses" class="block text-gray-600">課程介紹</a>
+            <a href="#teachers" class="block text-gray-600">師資團隊</a>
+            <a href="#parents" class="block text-gray-600">家長專區</a>
+            <a href="#performance" class="block text-gray-600">成果發表</a>
+            <a href="#faq" class="block text-gray-600">常見問題</a>
+            <a href="#contact" class="block text-gray-600 font-bold text-pink-500">聯絡我們</a>
+        </div>
+    </nav>
+
+    <!-- Hero 區塊 -->
+    <section id="home" class="pt-32 pb-20 piano-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left">
+                <div class="inline-block px-4 py-1 rounded-full bg-pink-100 text-pink-600 font-semibold text-sm mb-4">
+                    🎶 讓孩子愛上音樂的第一步
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    快樂鋼琴小學堂
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+                    為 6–12 歲孩子量身打造的鋼琴課程，透過遊戲化學習，讓音樂成為孩子生活的快樂源泉。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="px-8 py-4 bg-pink-500 text-white rounded-full font-bold shadow-lg hover:bg-pink-600 transition btn-bounce text-center">
+                        立即報名體驗課
+                    </a>
+                    <a href="#courses" class="px-8 py-4 bg-white text-pink-500 border-2 border-pink-200 rounded-full font-bold hover:bg-pink-50 transition btn-bounce text-center">
+                        了解課程內容
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 relative">
+                <div class="w-full aspect-video bg-gray-200 rounded-3xl shadow-2xl overflow-hidden flex items-center justify-center border-8 border-white">
+                    <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&q=80&w=800" alt="正在彈鋼琴的孩子" class="object-cover w-full h-full">
+                </div>
+                <!-- 裝飾元素 -->
+                <div class="absolute -bottom-6 -left-6 bg-yellow-400 p-4 rounded-2xl shadow-lg hidden sm:block animate-bounce">
+                    <span class="text-2xl">⭐ 遊戲化教學</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us 區塊 -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">為什麼選擇我們？</h2>
+                <div class="w-20 h-1 bg-pink-500 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6 rounded-2xl hover:bg-pink-50 transition group">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-gamepad text-2xl text-pink-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">遊戲化教學</h3>
+                    <p class="text-sm text-gray-500">孩子在玩樂中學音樂，記憶更深刻</p>
+                </div>
+                <div class="p-6 rounded-2xl hover:bg-blue-50 transition group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-users text-2xl text-blue-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">小班制教學</h3>
+                    <p class="text-sm text-gray-500">每班最多 10 人，確保專屬關注</p>
+                </div>
+                <div class="p-6 rounded-2xl hover:bg-yellow-50 transition group">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-music text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">多元曲目</h3>
+                    <p class="text-sm text-gray-500">從古典到卡通音樂，全面啟發興趣</p>
+                </div>
+                <div class="p-6 rounded-2xl hover:bg-purple-50 transition group">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-microphone-lines text-2xl text-purple-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">成果發表會</h3>
+                    <p class="text-sm text-gray-500">培養孩子自信與專業舞台表現</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課程介紹 -->
+    <section id="courses" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">課程分級介紹</h2>
+                    <p class="text-gray-600">針對不同年齡與基礎，設計循序漸進的快樂旅程</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 初階班 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="h-48 bg-pink-100 flex items-center justify-center">
+                        <i class="fa-solid fa-child-reaching text-6xl text-pink-300"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">初階班</h3>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs rounded-full">6–8 歲</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-600 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-500"></i> 認識琴鍵與節奏</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-500"></i> 基本手型與指法</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-500"></i> 音符遊戲 + 趣味彈奏</li>
+                        </ul>
+                        <button class="w-full py-3 border-2 border-pink-500 text-pink-500 font-bold rounded-xl hover:bg-pink-50 transition">了解詳情</button>
+                    </div>
+                </div>
+
+                <!-- 進階班 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 ring-2 ring-pink-500/20">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fa-solid fa-hands-holding-child text-6xl text-blue-300"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">進階班</h3>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full">9–10 歲</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-600 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> 左右手協調訓練</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> 簡單樂曲演奏技巧</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-500"></i> 自信上台表演訓練</li>
+                        </ul>
+                        <button class="w-full py-3 bg-pink-500 text-white font-bold rounded-xl hover:bg-pink-600 shadow-md transition">熱門選擇</button>
+                    </div>
+                </div>
+
+                <!-- 挑戰班 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="h-48 bg-yellow-100 flex items-center justify-center">
+                        <i class="fa-solid fa-graduation-cap text-6xl text-yellow-300"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">挑戰班</h3>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs rounded-full">11–12 歲</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-600 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-yellow-600"></i> 複雜和弦與伴奏技巧</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-yellow-600"></i> 獨奏曲與重奏曲挑戰</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-yellow-600"></i> 專業舞台演出訓練</li>
+                        </ul>
+                        <button class="w-full py-3 border-2 border-yellow-500 text-yellow-600 font-bold rounded-xl hover:bg-yellow-50 transition">進階挑戰</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 師資團隊 -->
+    <section id="teachers" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">專業師資團隊</h2>
+                <p class="text-gray-500">我們不只教鋼琴，更是在乎孩子的音樂感受</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex flex-col sm:flex-row items-center gap-6 bg-gray-50 p-8 rounded-3xl">
+                    <div class="w-32 h-32 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden ring-4 ring-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="王老師" class="object-cover h-full w-full">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">王老師 <span class="text-sm font-normal text-pink-500 ml-2">兒童啟蒙專家</span></h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            擅長兒童啟蒙教學，透過豐富的教具與故事，讓孩子在遊戲中找到音樂的樂趣。
+                        </p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="text-xs px-2 py-1 bg-white border border-gray-200 rounded">耐心度 100%</span>
+                            <span class="text-xs px-2 py-1 bg-white border border-gray-200 rounded">遊戲教學</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-6 bg-gray-50 p-8 rounded-3xl">
+                    <div class="w-32 h-32 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden ring-4 ring-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200" alt="林老師" class="object-cover h-full w-full">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">林老師 <span class="text-sm font-normal text-blue-500 ml-2">古典/流行音樂碩士</span></h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            主攻古典與流行鋼琴，善於引導孩子表演與自我表達，培養孩子獨特的演奏風格。
+                        </p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="text-xs px-2 py-1 bg-white border border-gray-200 rounded">舞台魅力</span>
+                            <span class="text-xs px-2 py-1 bg-white border border-gray-200 rounded">跨界音樂</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 家長專區 -->
+    <section id="parents" class="section-padding bg-pink-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-8">家長專區 — 攜手成就孩子的音樂夢</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-shield-halved text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">安心學習</h4>
+                                <p class="text-pink-100">透明教學進度回報，每月提供詳細的學習日誌與紀錄。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-house-chimney text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">家庭支持</h4>
+                                <p class="text-pink-100">提供簡單小技巧，幫助家長在忙碌之餘也能陪孩子快樂練習。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-comments text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">互動交流</h4>
+                                <p class="text-pink-100">專屬家長群組，與老師隨時保持溝通，追蹤成長細節。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-3xl shadow-xl text-gray-800">
+                        <h4 class="text-xl font-bold mb-4 text-center">💖 家長一致好評</h4>
+                        <div class="italic text-gray-600 mb-4">
+                            「自從來到快樂鋼琴小學堂，孩子不再覺得練琴是苦差事，反而每天主動想彈給我們聽！」
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                            <span class="font-bold text-sm">小明媽媽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成果發表 -->
+    <section id="performance" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">成果發表：專屬的小小演奏家</h2>
+            <p class="text-gray-500 mb-12 max-w-2xl mx-auto">每年固定舉辦發表會，給孩子一個登上舞台的機會，分享音樂給家人與朋友。</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=400" alt="表演照片1" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1514119412350-e174d90d280e?auto=format&fit=crop&q=80&w=400" alt="表演照片2" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&q=80&w=400" alt="表演照片3" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1525926477800-7a3b10a16f78?auto=format&fit=crop&q=80&w=400" alt="表演照片4" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <a href="#" class="inline-flex items-center gap-2 text-pink-500 font-bold hover:gap-4 transition-all">
+                    觀看歷屆活動精采相簿 <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 區塊 -->
+    <section id="faq" class="section-padding bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">常見問題解答</h2>
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100" open>
+                    <summary class="flex justify-between items-center cursor-pointer font-bold list-none">
+                        <span>1. 我的孩子沒有音樂基礎，可以學嗎？</span>
+                        <span class="group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 border-t pt-4">
+                        絕對可以！我們的課程完全從零開始，專為初學者設計。我們會從認識音符、觸摸琴鍵開始，透過有趣的互動讓孩子愛上音樂。
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold list-none">
+                        <span>2. 需要自備鋼琴嗎？</span>
+                        <span class="group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 border-t pt-4">
+                        教室現場備有專業鋼琴供課程使用。初期在家練習，建議可以先購買高品質的電子琴或電鋼琴，待孩子興趣穩定後再添購真鋼琴。
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold list-none">
+                        <span>3. 上課方式是怎樣的呢？</span>
+                        <span class="group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 border-t pt-4">
+                        我們採用溫馨的小班制（每班最多10人），每次課程時間為 60 分鐘。課程結合了技巧練習、樂理遊戲與曲目彈奏，每週固定上課 1-2 次。
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold list-none">
+                        <span>4. 成果發表會需要額外收費嗎？</span>
+                        <span class="group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 border-t pt-4">
+                        不需要！我們認為舞台經驗是學習音樂的核心部分，因此每年一度的成果發表會皆已包含在課程規劃中。
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡我們 -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-900 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-12 text-white">
+                    <h2 class="text-3xl font-bold mb-6">現在就預約免費體驗！</h2>
+                    <p class="text-gray-400 mb-8">留下您的聯絡方式，我們的課程顧問將盡快與您聯繫。</p>
+                    
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-location-dot text-pink-500 text-xl w-8"></i>
+                            <span>台北市 ○○ 區 ○○ 路 XX 號</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-pink-500 text-xl w-8"></i>
+                            <span>02-1234-5678</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-envelope text-pink-500 text-xl w-8"></i>
+                            <span>info@happypiano.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fa-brands fa-line text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fa-brands fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 bg-white p-12">
+                    <form onsubmit="event.preventDefault(); alert('感謝您的詢問！我們將盡快聯繫您。');">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">孩子姓名</label>
+                            <input type="text" placeholder="輸入孩子的姓名" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">聯絡電話</label>
+                            <input type="tel" placeholder="輸入您的手機號碼" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold mb-2">想了解的課程</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition">
+                                <option>初階班 (6–8 歲)</option>
+                                <option>進階班 (9–10 歲)</option>
+                                <option>挑戰班 (11–12 歲)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-pink-500 text-white font-bold rounded-xl shadow-lg hover:bg-pink-600 transition">
+                            送出預約申請
+                        </button>
+                        <p class="text-center text-xs text-gray-400 mt-4">
+                            或點擊下方按鈕加入 LINE 官方帳號快速詢問
+                        </p>
+                        <div class="mt-4 flex justify-center">
+                            <button class="flex items-center gap-2 bg-[#06C755] text-white px-6 py-2 rounded-full font-bold hover:opacity-90 transition">
+                                <i class="fa-brands fa-line text-xl"></i> LINE 快速預約
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-gray-50 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <span class="text-2xl">🎹</span>
+                <span class="font-bold">快樂鋼琴小學堂</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-6">
+                © 2026 Happy Piano Academy. All rights reserved.
+            </p>
+            <div class="flex justify-center space-x-6 text-sm text-gray-500">
+                <a href="#" class="hover:text-pink-500">隱私條款</a>
+                <a href="#" class="hover:text-pink-500">教學理念</a>
+                <a href="#" class="hover:text-pink-500">加入我們</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 行動版選單切換
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 點擊選單後自動關閉（行動版）
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 導覽列捲動效果
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+</body>
+</html>
